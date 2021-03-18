@@ -15,7 +15,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
     $salt = '@hellothis$$$$isfor&&&&&&&passwordprotection';
     $password = md5($password . $salt);
-    $sql = ("SELECT count(Id),Role FROM users WHERE (Username=:username_IN OR Email=:email_IN) AND Password=:password_IN");
+    $sql = ("SELECT count(Id),Role, Id FROM users WHERE (Username=:username_IN OR Email=:email_IN) AND Password=:password_IN");
     $stm = $conn->prepare($sql);
     $stm->bindParam(':username_IN', $username);
     $stm->bindParam(':email_IN', $email);
@@ -31,6 +31,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
         $_SESSION['password'] = $password;
         $_SESSION['logged_IN'] = 'yes';
         $_SESSION['role'] = $count['Role'];
+        $_SESSION['Id'] = $count['Id'];
         header('location:../index.php');
     }
 } else {

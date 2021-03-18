@@ -62,7 +62,7 @@ position: relative;
   }
 
 
-  input[type=submit] {
+  .formValidator input[type=submit] {
     width: 100%;
     background-color: #6db0e7;
     color: white;
@@ -73,7 +73,7 @@ position: relative;
     cursor: pointer;
   }
 
-  input[type=submit]:hover {
+  .formValidator input[type=submit]:hover {
     background-color: #2d59e9;
   }
 
@@ -91,9 +91,9 @@ position: relative;
 
 .success{
 
-  background-color: #b8bac2;
+  background-color: #e8e9ec;
   width:100%;
-  color:#0c0c0c;
+  color:#3c0ee6;
   text-align: center;
   padding:5px;
   margin: 10px;
@@ -109,12 +109,99 @@ float:right;
 }
 
 .container main{
-background-color: #3c6ae7;
+background-color: #e3f2fd;;
 width:100%;
-
+margin:20px;
 }
 
 .text-white{
 
   width:100%;
 }
+
+.btn-edit{
+  background-color: #13ec80;
+  color:#0a0a0a;
+  width:100px;
+  margin:5px;
+}
+
+.btn-delete{
+  background-color: #f10909;
+  color:#0a0a0a;
+  width:100px;
+  margin:5px;
+}
+
+.btn-comment{
+  background-color: #6db0e7;
+  color:#0a0a0a;
+  width:30%;
+  margin:5px;
+  border-radius: 5px;
+}
+
+
+
+.post_comment{
+
+  margin:20px;
+}
+
+
+
+/*Dropdown */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+
+/*Comments*/
+.comments{
+  background-color: #e8eaee;
+  width:50%;
+  color:#0a0a0a;
+  
+  padding:5px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+.username{
+  float: right;
+  color:#c9c5c5}
