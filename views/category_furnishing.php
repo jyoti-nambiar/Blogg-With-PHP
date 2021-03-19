@@ -47,8 +47,6 @@
 
                 <?php
 
-                include('../includes/database_connect.php');
-                include('../Classes/post.php');
                 $sql = 'CALL GetCategoryFurnishing(@a)';
                 $stm = $conn->prepare($sql);
                 $stm->execute();
