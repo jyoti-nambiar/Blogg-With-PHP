@@ -36,10 +36,12 @@ if (!empty($_FILES['imageToUpload']['name'])) {
         $date_time = date("Y-m-d");
         $image = $target_file;
         $id = $_POST['Id'];
-        $sql = "INSERT INTO posts (Title,Image,Date_time, CreatedBy,Content, UserId) VALUES(:title_IN,:image_IN,'$date_time',:username_IN, :content_IN, :userid_IN)";
+        $selected_val = $_POST['Category'];
+        $sql = "INSERT INTO posts (Title,Image,Category,Date_time, CreatedBy,Content, UserId) VALUES(:title_IN,:image_IN,:category_IN,'$date_time',:username_IN, :content_IN, :userid_IN)";
         $stm2 = $conn->prepare($sql);
         $stm2->bindParam(':title_IN', $title);
         $stm2->bindParam(':image_IN', $image);
+        $stm2->bindParam(':category_IN', $selected_val);
         $stm2->bindParam(':username_IN', $username);
         $stm2->bindParam(':content_IN', $content);
         $stm2->bindParam(':userid_IN', $id);
@@ -52,23 +54,26 @@ if (!empty($_FILES['imageToUpload']['name'])) {
     } else {
         echo "Something went wrong!";
     }
-}
-
-
-$username = $_SESSION['username'];
-$title = $_POST['title'];
-$content = $_POST['content'];
-$date_time = date("Y-m-d");
-$id = $_POST['Id'];
-$query = "INSERT INTO posts (Title,Date_time, CreatedBy,Content, UserId) VALUES(:title_IN,'$date_time',:username_IN, :content_IN, :userid_IN)";
-$stm2 = $conn->prepare($query);
-$stm2->bindParam(':title_IN', $title);
-$stm2->bindParam(':username_IN', $username);
-$stm2->bindParam(':content_IN', $content);
-$stm2->bindParam(':userid_IN', $id);
-if ($stm2->execute()) {
-
-    header('location:../index.php');
 } else {
-    echo "error creating new post";
+
+
+    $username = $_SESSION['username'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $date_time = date("Y-m-d");
+    $id = $_POST['Id'];
+    $selected_val = $_POST['Category'];
+    $query = "INSERT INTO posts (Title,Category,Date_time, CreatedBy,Content, UserId) VALUES(:title_IN,:category_IN,'$date_time',:username_IN, :content_IN, :userid_IN)";
+    $stm2 = $conn->prepare($query);
+    $stm2->bindParam(':title_IN', $title);
+    $stm2->bindParam(':category_IN', $selected_val);
+    $stm2->bindParam(':username_IN', $username);
+    $stm2->bindParam(':content_IN', $content);
+    $stm2->bindParam(':userid_IN', $id);
+    if ($stm2->execute()) {
+
+        header('location:../index.php');
+    } else {
+        echo "error creating new post";
+    }
 }

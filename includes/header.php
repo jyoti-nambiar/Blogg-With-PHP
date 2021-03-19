@@ -50,9 +50,9 @@
         <?php if (isset($_SESSION['logged_IN'])) { ?>
             <div class="nav-scroller py-1 mb-2">
                 <nav class="nav d-flex justify-content-between">
-                    <a class="p-2 link-secondary" href="#">Clock</a>
-                    <a class="p-2 link-secondary" href="#">Sunglasses</a>
-                    <a class="p-2 link-secondary" href="#">Furnishing</a>
+                    <a class="p-2 link-secondary" href="/BloggCms/views/category_clock.php">Clock</a>
+                    <a class="p-2 link-secondary" href="/BloggCms/views/category_sunglass.php">Sunglasses</a>
+                    <a class="p-2 link-secondary" href="/BloggCms/views/category_furnishing.php">Furnishing</a>
 
                 </nav>
             </div>

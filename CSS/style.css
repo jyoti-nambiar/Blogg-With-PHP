@@ -12,6 +12,13 @@ box-sizing: border-box;
 --error-color:#e74c3c;
 }
 
+.blog-header-logo{
+
+font-size:30px;
+font-weight: 900;
+
+}
+
 
 .formValidator h2{
 text-align:center;
@@ -102,11 +109,7 @@ position: relative;
 }
 
 
-.nav-item > li :last-child{
 
-float:right;
-
-}
 
 .container main{
 background-color: #e3f2fd;;
@@ -133,13 +136,6 @@ margin:20px;
   margin:5px;
 }
 
-.btn-comment{
-  background-color: #6db0e7;
-  color:#0a0a0a;
-  width:30%;
-  margin:5px;
-  border-radius: 5px;
-}
 
 
 
@@ -191,11 +187,25 @@ margin:20px;
 
 
 /*Comments*/
+
+.btn-comment{
+  background-color: #070707;
+  color:#f3eaea;
+  width:20%;
+  margin:5px;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
 .comments{
   background-color: #e8eaee;
   width:50%;
   color:#0a0a0a;
-  
   padding:5px;
   margin: 10px;
   border-radius: 10px;
@@ -205,3 +215,21 @@ margin:20px;
 .username{
   float: right;
   color:#c9c5c5}
+
+  /*Footer*/
+  footer {
+    background-color: rgb(224, 221, 213);
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 25px;
+    width: 100%;
+  }
+
+
+
+footer p{
+
+  text-align: center;
+  color:#777;
+}

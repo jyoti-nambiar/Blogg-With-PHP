@@ -26,8 +26,8 @@
     <main class="container">
         <div class="p-4 p-md-5 mb-4 text-white rounded" style=" background-color: #383838;">
             <div class="col-md-6 px-0">
-                <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+                <h1 class="display-4 fst-italic">The latest trends in fashion and furnishing!</h1>
+                <p class="lead my-3">Welcome all to our blog, here you will find the latest trends in fashion and furnishing, from your very own shop Millhouse, Now shop even online with our new segment of Webshop. </p>
                 <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
             </div>
         </div>
@@ -92,7 +92,8 @@
 
                                 <input type="submit" class="btn-delete" value="Delete">
                             </form>
-
+                        <?php  } ?>
+                        <?php if (isset($_SESSION['logged_IN']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) { ?>
                             <div class="post_comment">
 
                                 <form action="views/comment.php" method="get">
@@ -100,16 +101,28 @@
                                     <input type="submit" value="comments" class="btn-comment" />
                                 </form>
                             </div>
-                        <?php  } ?>
+                    <?php  }
+                    } ?>
                     </article>
 
-                <?php  } ?>
+
 
             </div>
             <div class="col-md-4">
                 <div class="p-4 mb-3 bg-light rounded">
                     <h4 class="fst-italic">About</h4>
-                    <p class="mb-0">Saw you downtown singing the Blues. Watch you circle the drain. Why don't you let me stop by? Heavy is the head that <em>wears the crown</em>. Yes, we make angels cry, raining down on earth from up above.
+                    <p class="mb-0"><span>Millhouse</span> is a wholesale company that sells clothing, accessories and small furnishings to fashion and lifestyle stores.Having been in the industry since 2000, we are one of the trusted brand that our customers rely when it comes to quality and affordable products.Our Mission & Vision is to provide best valued products to our customers. We provide top brands to our customers, and enable our brand partners to reach the widest audience along with 14 Days Money Back Guarantee & 365 days Returns.
+                    </p>
+
+                    <p> Millhouse have now plan to reach to you with its new onine e-commerce store, a continuously evolving shopping center online.Just like a shopping center,theres is always something fresh and exciting.With our range of options in <em>Clocks</em>, <em>sunglasses &</em>
+                        <em>smaller furnishings</em>, We continue to give high quality service and long standing commitment to our customers.Follow us on our new and latest updates on our
+                        and connect with us to let us know what would you like to see and share your experiences with us to serve you better.
+
+                    </p>
+
+                    <p> Millhouse has annual sales of SEK 75 million and 50 employees, mainly within administration, purchasing and inventory management, and we are expanding our team with our new online store to give you a whole new experience of online shopping.</p>
+
+                    </p>
 
                     </p>
                 </div>
@@ -121,7 +134,7 @@
 
 
     <?php
-    include "includes/footer.php"; ?>
+    include("includes/footer.php");  ?>
 
 </body>
 

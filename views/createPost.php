@@ -22,6 +22,24 @@
             <input type="text" class="text" name="title" placeholder="Enter Title">
 
         </div>
+
+        <div class="formControl">
+            <label for="cars">Choose a category:</label>
+
+            <select name="Category" id="category">
+                <option value="">Pick one</option>
+                <option value="clock">Clock</option>
+                <option value="sunglass">Sunglass</option>
+                <option value="Furnishing">Furnishing</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
         <div class="formControl">
             <textarea name="content" id="" cols="45" rows="10" placeholder="Enter Content">
 

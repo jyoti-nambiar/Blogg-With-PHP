@@ -30,8 +30,10 @@
             <article class="blog-post">
                 <h2 class="blog-post-title"><?= $postData->getTitle(); ?></h2>
                 <p class="blog-post-meta"><?= $postData->getDateTime(); ?> by <a href="#"><?= $postData->getUsername(); ?></a></p>
+                <?php if (!empty($postData->getImage())) { ?>
+                    <p><img src="/BloggCms/views/<?= $postData->getImage(); ?>" alt="postimg" style="width:200px; height:200px;"></p>
+                <?php } ?>
 
-                <p><img src="/BloggCms/views/<?= $postData->getImage(); ?>" alt="postimg" style="width:200px; height:200px;"></p>
 
 
 
@@ -62,7 +64,7 @@
                 <input type="hidden" name="username" value=<?= $postData->getUsername(); ?>>
                 <input type="hidden" name="Id" value=<?= $postData->getId(); ?>>
                 <textarea name="content" id="" cols="30" rows="3"></textarea>
-                <input type="submit" value="Comment">
+                <input class="btn-comment" type="submit" value="Comment">
             </form>
         </main>
 
