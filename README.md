@@ -1,8 +1,8 @@
-**Millhouse Blog**
+#Millhouse Blog#
 Millhouse Blog is a simple php web application that includes a blog.It was ctreated as the basis for a project assigned by school, but everyone is welcome to use it.The implementation strives to be simple and free of unnecessary dependencies.
 
 ***
-**Goals**
+##Goals##
 *An easy way to create a simple, secure website with a blog
 *Support for text-based and photo-based blog formats
 *Ordering of posts by category
@@ -14,13 +14,13 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 
 ***
 
-**Structure**
+##Structure##
 */index.php             Entry point for the Blog application
 */views/register.php    To register as a _user_
 */views/login.php       To login as a user/admin
 */views/createPost.php  To create a new post as admin
 
-**Instructions**
+##Instructions##
 1.Download and install XAMPP server.
 2.Turn on Apache server and Mysql from Xampp control panel.
 3.Fork and clone repository.
@@ -28,12 +28,13 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 5.There are two login role set ,
 i)As admin, you get the previlage of creating a new post, editing a post and  deleting a post,commenting on post & deleting a comment.
 ii)As user, you get to comment on the blog.
-6.The project comes with two users set with role _admin_ & _user_,
+6.New registered user get the role of a user, hence can comment on the post.
+7.The project comes with two users set with role _admin_ & _user_,
 |Sr.no |Role |Username|Password|
 |------|-----|--------|--------|
 | 1    |admin|  admin | admin  |
 | 2    |user |  user  | user   |
-7.New registered user get the role of a user, hence can comment on the post.
 
-**Created By Jyoti**
+
+###Created By Jyoti###
 
