@@ -43,7 +43,7 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 | 1    |admin|  admin | admin  |
 | 2    |user |  user  | user   |
 
-***
+
 
 ###Created By Jyoti
 
