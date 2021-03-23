@@ -47,7 +47,7 @@
 
                 <?php
 
-                $sql = 'CALL GetCategoryFurnishing(@a)';
+                $sql = 'CALL GetCategoryFurnishing()';
                 $stm = $conn->prepare($sql);
                 $stm->execute();
                 while ($row = $stm->fetch()) {

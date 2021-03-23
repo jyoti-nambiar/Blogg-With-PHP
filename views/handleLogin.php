@@ -1,5 +1,6 @@
 <?php
-include '../includes/database_connect.php';
+include('../includes/database_connect.php');
+include('../includes/function.php');
 if (isset($_POST['username_email']) && isset($_POST['password'])) {
     if (empty($_POST['username_email'])) {
         header('location:login.php?error=Please enter the username/email');
@@ -10,11 +11,12 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
         header('location:login.php?error=Please enter the password');
         die();
     }
-    $username = $_POST['username_email'];
-    $email = $_POST['username_email'];
+    $username = validate($_POST['username_email']);
+    $email = validate($_POST['username_email']);
     $password = $_POST['password'];
     $salt = '@hellothis$$$$isfor&&&&&&&passwordprotection';
     $password = md5($password . $salt);
+    echo $password;
     $sql = ("SELECT count(Id),Role, Id FROM users WHERE (Username=:username_IN OR Email=:email_IN) AND Password=:password_IN");
     $stm = $conn->prepare($sql);
     $stm->bindParam(':username_IN', $username);

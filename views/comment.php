@@ -15,6 +15,21 @@
     <?php
     include('../includes/database_connect.php');
     include('../includes/header.php');
+    include('../includes/function.php');
+
+    if (isset($_POST['delete'])) {
+        print_r($_POST);
+        $postId = $_POST['PostId'];
+        $commentId = $_POST['CommentId'];
+        $query = "DELETE FROM comments WHERE Id=$commentId";
+        $statement = $conn->prepare($query);
+        if ($statement->execute()) {
+            header('Location:comment.php?Id=' . $postId);
+        } else {
+            echo "Comment is not deleted";
+        }
+    }
+
 
     $Id = $_GET['Id'];
     $sql = "SELECT * FROM posts WHERE Id=$Id";
@@ -28,44 +43,53 @@
     ?>
         <main class="container">
             <article class="blog-post">
-                <h2 class="blog-post-title"><?= $postData->getTitle(); ?></h2>
-                <p class="blog-post-meta"><?= $postData->getDateTime(); ?> by <a href="#"><?= $postData->getUsername(); ?></a></p>
+                <h2 class="blog-post-title"><?= noHtml($postData->getTitle()); ?></h2>
+                <p class="blog-post-meta"><?= $postData->getDateTime(); ?> by <?= $postData->getUsername(); ?></p>
                 <?php if (!empty($postData->getImage())) { ?>
                     <p><img src="/BloggCms/views/<?= $postData->getImage(); ?>" alt="postimg" style="width:200px; height:200px;"></p>
                 <?php } ?>
 
-
-
-
-
-
-                <p><?= $postData->getContent(); ?></p>
+                <p><?= noHtml($postData->getContent()); ?></p>
 
             </article>
             <?php
-            $query = "SELECT c.Comment_text, u.Username FROM comments AS c JOIN users AS u ON u.Id = c.User_Id WHERE c.PostId=$Id";
+            $query = "SELECT c.Id,c.Comment_text,c.Post_Id, u.Username FROM comments AS c JOIN users AS u ON u.Id = c.User_Id WHERE c.Post_Id=$Id";
             $statement = $conn->prepare($query);
             $statement->execute();
             $count = $statement->rowCount();
 
             echo "<h3>Comments</h3>";
             while ($row = $statement->fetch()) {
+                //print_r($row);
+                $comment = noHtml($row['Comment_text']);
+                $username = noHtml($row['Username']);
+                //$count = $row['NumComments'];
+            ?>
+                <p class='comments'> <?= $comment ?><span class='username'><?= $username ?></span>
+                    <?php if (!empty($row) && isset($_SESSION) && $_SESSION['role'] == 'admin') { ?>
+                <form action="" method='post'>
+                    <input type="hidden" name="PostId" value=<?= $row['Post_Id']; ?>>
+                    <input type="hidden" name="CommentId" value="<?= $row['Id'] ?>">
+                    <input type="submit" name="delete" class="delete-btn" value="Delete">
 
-                $comment = $row['Comment_text'];
-                $username = $row['Username'];
 
-                echo "<p class='comments'> $comment  <span class='username'>$username</span></p>";
+                </form>
+            <?php } ?>
+            </p>
+
+        <?php
+
             }
 
-            ?>
+        ?>
 
-            <form id="form1" action="handleComments.php" method="POST">
-                <input type="hidden" name="userId" value=<?= $_SESSION['Id']; ?>>
-                <input type="hidden" name="username" value=<?= $postData->getUsername(); ?>>
-                <input type="hidden" name="Id" value=<?= $postData->getId(); ?>>
-                <textarea name="content" id="" cols="30" rows="3"></textarea>
-                <input class="btn-comment" type="submit" value="Comment">
-            </form>
+        <form id="form1" action="handleComments.php" method="POST">
+            <input type="hidden" name="userId" value=<?= $_SESSION['Id']; ?>>
+            <input type="hidden" name="username" value=<?= $postData->getUsername(); ?>>
+            <input type="hidden" name="Id" value=<?= $postData->getId(); ?>>
+            <textarea name="content" id="" cols="30" rows="3"></textarea>
+            <input class="btn-comment" type="submit" value="Comment">
+        </form>
         </main>
 
     <?php
@@ -74,9 +98,6 @@
         die();
     }
     ?>
-
-
-
 
 </body>
 

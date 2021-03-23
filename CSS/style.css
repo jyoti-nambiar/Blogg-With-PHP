@@ -196,7 +196,15 @@ margin:20px;
   border-radius: 5px;
 }
 
+.delete-btn{
+  background-color: #f00e0e;
+  color:#f3eaea;
+  width:10%;
+  margin:5px;
+  border-radius: 5px;
 
+
+}
 
 
 

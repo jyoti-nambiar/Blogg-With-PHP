@@ -1,3 +1,15 @@
+<?php
+include('../includes/header.php');
+
+
+if (!isset($_SESSION)) {
+    header('Location:../index.php');
+}  ?>
+
+
+<?php if (isset($_SESSION) && $_SESSION['role'] == 'user') {
+    print_r($_SESSION);
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
 </head>
 
 <body>
-    <?php include '../includes/header.php'; ?>
+
     <form class="formValidator" method="post" action="handlePost.php" enctype="multipart/form-data">
         <h2>Create New Post</h2>
 

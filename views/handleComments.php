@@ -9,7 +9,7 @@ if (isset($_POST) && !empty($_POST)) {
     $postId = $_POST['Id'];
     $userId = $_POST['userId'];
 
-    $sql = "INSERT INTO comments(Comment_text, PostId, User_Id) VALUES(:content_IN,:postId_IN,:userId_IN)";
+    $sql = "INSERT INTO comments(Comment_text, Post_Id, User_Id) VALUES(:content_IN,:postId_IN,:userId_IN)";
     $stm = $conn->prepare($sql);
     $stm->bindParam(':content_IN', $content);
     $stm->bindParam(':postId_IN', $postId);

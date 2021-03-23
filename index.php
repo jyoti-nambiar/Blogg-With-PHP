@@ -21,6 +21,7 @@
     include("includes/header.php"); ?>
 
     <?php include('includes/database_connect.php');
+    include('includes/function.php');
 
     ?>
     <main class="container">
@@ -73,12 +74,12 @@
                 ?>
 
                     <article class="blog-post">
-                        <h2 class="blog-post-title"><?= $postData->getTitle(); ?></h2>
+                        <h2 class="blog-post-title"><?= noHtml($postData->getTitle()); ?></h2>
                         <p class="blog-post-meta"><?= $postData->getDateTime(); ?> by <?= $postData->getUsername(); ?></p>
                         <?php if (!empty($postData->getImage())) { ?>
                             <p><img src="/BloggCms/views/<?= $postData->getImage(); ?>" alt="postimg" style="width:500px;"></p>
                         <?php  } ?>
-                        <p><?= $postData->getContent(); ?></p>
+                        <p><?= noHtml($postData->getContent()); ?></p>
                         <?php if (isset($_SESSION['logged_IN']) && $_SESSION['role'] == 'admin') { ?>
 
                             <form action="/BloggCms/views/editPost.php" method="GET">
@@ -93,15 +94,25 @@
                                 <input type="submit" class="btn-delete" value="Delete">
                             </form>
                         <?php  } ?>
-                        <?php if (isset($_SESSION['logged_IN']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) { ?>
-                            <div class="post_comment">
+                        <?php if (isset($_SESSION['logged_IN']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) {
 
-                                <form action="views/comment.php" method="get">
-                                    <input type="hidden" name="Id" value=<?= $postData->getId(); ?> />
-                                    <input type="submit" value="comments" class="btn-comment" />
-                                </form>
-                            </div>
-                    <?php  }
+                            $Id = $postData->getId();
+                            $query = "SELECT COUNT(*) AS NumComments FROM comments WHERE Post_Id=$Id ";
+                            $statement = $conn->prepare($query);
+                            $statement->execute();
+                            while ($row = $statement->fetch()) {
+                                $count = $row['NumComments'];
+                        ?>
+                                <div class="post_comment">
+
+                                    <form action="views/comment.php" method="get">
+                                        <input type="hidden" name="Id" value=<?= $postData->getId(); ?> />
+                                        <input type="submit" value="comments(<?= $count ?>)" class="btn-comment" />
+                                    </form>
+                                </div>
+                    <?php
+                            }
+                        }
                     } ?>
                     </article>
 

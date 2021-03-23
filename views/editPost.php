@@ -1,3 +1,12 @@
+<?php include '../includes/header.php'; ?>
+<?php if (!isset($_SESSION)) {
+    header('Location:../index.php');
+}  ?>
+
+<?php if (isset($_SESSION) && $_SESSION['role'] == 'user') {
+    header('Location:../index.php');
+}  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +18,7 @@
 </head>
 
 <body>
-    <?php include '../includes/header.php'; ?>
+
 
     <?php
 

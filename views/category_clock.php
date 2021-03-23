@@ -45,11 +45,10 @@
                 <?php
 
 
-                $sql = 'CALL GetCategoryClock(@a)';
+                $sql = 'CALL GetCategoryClock()';
                 $stm = $conn->prepare($sql);
                 $stm->execute();
                 while ($row = $stm->fetch()) {
-
                     $postData = new post($row['Id'], $row['CreatedBy'], $row['Title'], $row['Image'], $row['Date_Time'], $row['Content']);
 
                 ?>
@@ -76,6 +75,8 @@
                             </form>
                         <?php  } ?>
                         <?php if (isset($_SESSION['logged_IN']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) { ?>
+
+
                             <div class="post_comment">
 
                                 <form action="/BloggCms/views/comment.php" method="get">
@@ -83,7 +84,9 @@
                                     <input type="submit" value="comments" class="btn-comment" />
                                 </form>
                             </div>
-                    <?php  }
+                    <?php
+
+                        }
                     } ?>
                     </article>
 

@@ -46,7 +46,7 @@
                 <?php
 
 
-                $sql = 'CALL GetCategorySunglass(@a)';
+                $sql = 'CALL GetCategorySunglass()';
                 $stm = $conn->prepare($sql);
                 $stm->execute();
                 while ($row = $stm->fetch()) {
