@@ -1,5 +1,5 @@
 #Millhouse Blog
-Millhouse Blog is a simple php web application that includes a blog.It was ctreated as the basis for a project assigned by school, but everyone is welcome to use it.The implementation strives to be simple and free of unnecessary dependencies.
+Millhouse Blog is a simple php web application that includes a blog.It was created as the basis for a project assigned by school, but everyone is welcome to use it.The implementation strives to be simple and free of unnecessary dependencies.
 
 ***
 
