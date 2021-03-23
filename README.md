@@ -28,6 +28,7 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 * /views/login.php       To login as a user/admin
 * /views/createPost.php  To create a new post as admin
 
+***
 ##Instructions
 1. Download and install XAMPP server.
 2. Turn on Apache server and Mysql from Xampp control panel.
@@ -37,7 +38,8 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 * As admin, you get the previlage of creating a new post, editing a post and  deleting a post,commenting on post & deleting a comment.
 * As user, you get to comment on the blog.
 6. New registered user get the role of a user, hence can comment on the post.
-7. The project comes with two users set with role _admin_ & _user_,
+7. The project comes with two users set with role _admin_ & _user_
+
 |Sr.no |Role |Username|Password|
 |------|-----|--------|--------|
 | 1    |admin|  admin | admin  |
