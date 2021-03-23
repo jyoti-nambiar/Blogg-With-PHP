@@ -10,7 +10,7 @@ Millhouse Blog is a simple php web application that includes a blog.It was creat
 * Ability to author posts and a publish date
 * Ability to create posts, edit post, delete post by _admin_
 * Ability to comment on post, when logged in as _user_ or _admin_
-* Safety to be taken into consideration ,using functions to prevent XSS attack
+* Safety to be taken into consideration to prevent XSS attack
 * No JavaScript requirement for client browsers.
 
 ***
