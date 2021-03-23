@@ -1,8 +1,8 @@
-#Millhouse Blog#
+#Millhouse Blog
 Millhouse Blog is a simple php web application that includes a blog.It was ctreated as the basis for a project assigned by school, but everyone is welcome to use it.The implementation strives to be simple and free of unnecessary dependencies.
 
 ***
-##Goals##
+##Goals
 *An easy way to create a simple, secure website with a blog
 *Support for text-based and photo-based blog formats
 *Ordering of posts by category
@@ -14,13 +14,13 @@ Millhouse Blog is a simple php web application that includes a blog.It was ctrea
 
 ***
 
-##Structure##
+##Structure
 */index.php             Entry point for the Blog application
 */views/register.php    To register as a _user_
 */views/login.php       To login as a user/admin
 */views/createPost.php  To create a new post as admin
 
-##Instructions##
+##Instructions
 1.Download and install XAMPP server.
 2.Turn on Apache server and Mysql from Xampp control panel.
 3.Fork and clone repository.
@@ -36,5 +36,5 @@ ii)As user, you get to comment on the blog.
 | 2    |user |  user  | user   |
 
 
-###Created By Jyoti###
+###Created By Jyoti
 
